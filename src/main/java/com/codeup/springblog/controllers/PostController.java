@@ -22,11 +22,11 @@ public class PostController {
     @GetMapping("/posts/create")
     @ResponseBody
     public String creatingPost(){
-        return "<h1>spring-blog post form</h1>\n" +
+        return "<h1>Testing Post Map</h1>\n" +
                 "    <form method=\"post\" action=\"/posts/create\">\n" +
-                "        <label for=\"word\">Enter a word:</label>\n" +
+                "        <label for=\"word\">Press button to Test!:</label>\n" +
                 "        <input type=\"text\" name=\"word\" id=\"word\">\n" +
-                "        <button type=\"submit\">Submit</button>\n" +
+                "        <button type=\"submit\">Testing PostMapping</button>\n" +
                 "    </form>";
 }
     @PostMapping("/posts/create")
