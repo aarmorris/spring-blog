@@ -13,9 +13,15 @@ public class MathController {
         return sum + sum2;
     }
 
-    @GetMapping("/subtract/{sub}/and{sub2}{")
+    @GetMapping("/subtract/{sub}/and/{sub2}")
     @ResponseBody
     public int subInt(@PathVariable int sub, @PathVariable int sub2){
-        return sub - sub;
+        return sub - sub2;
+    }
+
+    @GetMapping("/multiply/{multi}/and/{multi2}")
+    @ResponseBody
+    public int multiplayInt(@PathVariable int multi, @PathVariable int multi2){
+        return multi * multi;
     }
 }
