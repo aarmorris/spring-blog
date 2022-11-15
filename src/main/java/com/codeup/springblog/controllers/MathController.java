@@ -24,4 +24,12 @@ public class MathController {
     public int multiplyInt(@PathVariable int multi, @PathVariable int multi2){
         return multi * multi;
     }
+
+    @GetMapping("/divide/{div}/and/{div2}")
+    @ResponseBody
+    public int divideInt(@PathVariable int div, @PathVariable int div2){
+        return div / div2;
+    }
+
+
 }
