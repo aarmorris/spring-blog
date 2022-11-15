@@ -21,7 +21,7 @@ public class MathController {
 
     @GetMapping("/multiply/{multi}/and/{multi2}")
     @ResponseBody
-    public int multiplayInt(@PathVariable int multi, @PathVariable int multi2){
+    public int multiplyInt(@PathVariable int multi, @PathVariable int multi2){
         return multi * multi;
     }
 }
