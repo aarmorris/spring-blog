@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
 <head>
     <meta charset="UTF-8">
     <title>Coffee</title>
@@ -18,5 +17,15 @@
       <li><a href="/coffee/light">Light Roast</a></li>
   </ul>
   <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus consequuntur culpa deleniti doloribus error est exercitationem expedita magnam magni, numquam, odio optio qui quibusdam ratione repellendus sit tempore velit.</span><span>Aperiam deserunt doloribus, nobis reprehenderit saepe sapiente vero! Eaque, nam, recusandae! Accusantium consequatur, consequuntur, deserunt ea eum eveniet explicabo facere id, labore laborum nam nostrum possimus quibusdam sint voluptatibus voluptatum!</span><span>Accusamus commodi dolor fuga harum magnam nisi possimus qui. Culpa, delectus dignissimos maiores neque numquam odio perferendis perspiciatis provident repellendus reprehenderit. Alias assumenda, consequuntur earum eius enim eum omnis soluta.</span></p>
+
+  <div>
+      <p>Want to sign up for our newsletter? Enter your email!</p>
+      <form action="/coffee" method="post">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email">
+          <button type="submit">Sign up</button>
+      </form>
+      <p th:if="${email}">Thanks for signing up! We will send the newsletter to <span th:text="${email}"></span></p>
+  </div>
 </body>
 </html>
