@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,5 +7,13 @@
 </head>
 <body>
   <h1>Coffee!</h1>
+  <h2>Select your favored roast:</h2>
+  <h2>You selected: <span th:text="${roast}"></span> roast!</h2>
+  <ul>
+      <li><a href="/coffee/dark">Dark Roast</a></li>
+      <li><a href="/coffee/medium">Medium Roast</a></li>
+      <li><a href="/coffee/light">Light Roast</a></li>
+  </ul>
+  <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus consequuntur culpa deleniti doloribus error est exercitationem expedita magnam magni, numquam, odio optio qui quibusdam ratione repellendus sit tempore velit.</span><span>Aperiam deserunt doloribus, nobis reprehenderit saepe sapiente vero! Eaque, nam, recusandae! Accusantium consequatur, consequuntur, deserunt ea eum eveniet explicabo facere id, labore laborum nam nostrum possimus quibusdam sint voluptatibus voluptatum!</span><span>Accusamus commodi dolor fuga harum magnam nisi possimus qui. Culpa, delectus dignissimos maiores neque numquam odio perferendis perspiciatis provident repellendus reprehenderit. Alias assumenda, consequuntur earum eius enim eum omnis soluta.</span></p>
 </body>
 </html>
