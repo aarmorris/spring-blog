@@ -7,8 +7,11 @@
 </head>
 <body>
   <h1>Coffee!</h1>
-  <h2>Select your favored roast:</h2>
-  <h2>You selected: <span th:text="${roast}"></span> roast!</h2>
+  <h2 th:unless="${roast}">Select your favored roast:</h2>
+  <h2 th:if="${roast}">You selected: <span th:text="${roast}"></span> roast!</h2>
+  <div th:if="${roast}">
+      <p th:if="${roast} == 'dark'"> We have excellent dark roast for you!</p>
+  </div>
   <ul>
       <li><a href="/coffee/dark">Dark Roast</a></li>
       <li><a href="/coffee/medium">Medium Roast</a></li>
