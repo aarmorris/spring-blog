@@ -5,6 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Controller
 @RequestMapping("/coffee")
 public class CoffeeController {
@@ -14,10 +18,13 @@ public class CoffeeController {
     }
     @GetMapping("/{roast}")
     public String roast(@PathVariable String roast, Model model){
-        Coffee selection = new Coffee();
-        selection.setRoast(roast);
-        selection.setOrigin("Ethiopia");
-        model.addAttribute("roast", roast);
+        Coffee selection = new Coffee(roast, "Cool Beans");
+        Coffee selection2 = new Coffee(roast, "Coffee Bros");
+        selection.setOrigin("Vietnam");
+        selection2.setOrigin("Ethiopia");
+        model.addAttribute("selection", selection);
+        List<Coffee> selections = new ArrayList<>(List.of(selection, selection2));
+        model.addAttribute("selections", selections);
         return "coffee";
     }
     @PostMapping

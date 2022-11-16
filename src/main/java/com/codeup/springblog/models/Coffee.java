@@ -4,12 +4,22 @@ public class Coffee {
     private String roast;
     private String origin;
 
+    private String brand;
+
     public Coffee() {
     }
 
-    public Coffee(String roast, String origin) {
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public Coffee(String roast, String brand){
         this.roast = roast;
-        this.origin = origin;
+        this.brand = brand;
     }
 
     public String getRoast() {
