@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Coffee;
+import com.codeup.springblog.repositories.CoffeeRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/coffee")
 public class CoffeeController {
+    // dependency injection down below.
+    private final CoffeeRepository coffeeDao;
+
+    public CoffeeController(CoffeeRepository coffeeDao) {
+        this.coffeeDao = coffeeDao;
+    }
     @GetMapping
     public String coffee(){
         return "coffee";
@@ -27,10 +34,16 @@ public class CoffeeController {
         model.addAttribute("selections", selections);
         return "coffee";
     }
+    @GetMapping("/new")
+    public String addCoffeeForm(){
+        return "create-coffee";
+    }
     @PostMapping
     public String signUp(@RequestParam(name="email") String email, Model model){
         model.addAttribute("email", email);
         return "coffee";
+
+
 
     }
 }

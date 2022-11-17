@@ -1,9 +1,24 @@
 package com.codeup.springblog.models;
+import javax.persistence.*;
 // This is a POJO aka Plain Old Java Object
+
+// This java class is a Model
+@Entity
+@Table(name="coffees")
 public class Coffee {
+
+
+    // Primary Key with the annotation ID
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(nullable = false, length = 50)
     private String roast;
+
+    @Column(nullable = false)
     private String origin;
 
+    @Column(nullable = false, length = 100)
     private String brand;
 
     public Coffee() {
@@ -12,7 +27,13 @@ public class Coffee {
     public String getBrand() {
         return brand;
     }
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -37,4 +58,6 @@ public class Coffee {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+
+
 }
