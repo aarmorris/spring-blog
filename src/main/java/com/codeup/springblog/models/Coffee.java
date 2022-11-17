@@ -59,5 +59,9 @@ public class Coffee {
         this.origin = origin;
     }
 
-
+    public Coffee(String roast, String origin, String brand) {
+        this.roast = roast;
+        this.origin = origin;
+        this.brand = brand;
+    }
 }
