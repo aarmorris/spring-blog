@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- First Step is to Create first to start database generation-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roll Dice</title>
+</head>
+<body>
+<h1>Pick a Number</h1>
+<ul>
+    <li><a href="/roll-dice/1">1</a></li>
+    <li><a href="/roll-dice/2">2</a></li>
+    <li><a href="/roll-dice/3">3</a></li>
+    <li><a href="/roll-dice/4">4</a></li>
+    <li><a href="/roll-dice/5">5</a></li>
+    <li><a href="/roll-dice/6">6</a></li>
+
+</ul>
+<div th:if="${numberChosen}">
+<p>This random number is:  <span th:text="${randomNumber}"></span> </p>
+
+
+<p>Your number you chose is:  <span th:text="${numberChosen}"></span> </p>
+</div>
+
+</body>
+</html>
