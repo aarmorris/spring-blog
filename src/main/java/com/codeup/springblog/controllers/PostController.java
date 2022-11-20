@@ -1,42 +1,48 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Post;
+import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PostController {
-    @GetMapping("/posts")
-    @ResponseBody
-    public String postIndex() {
-        return "posts index page";
+
+    private final PostRepository postDAO;
+
+    public PostController(PostRepository postDAO) {
+        this.postDAO = postDAO;
     }
 
-    @GetMapping("/posts/{id}")
-//    @ResponseBody
-    public String individualPost(@PathVariable long id, Model model) {
-        String testText = "The test passed";
-        model.addAttribute("aPassedTest", testText);
+    @GetMapping("/posts")
+    public String postIndex(Model model) {
+        List<Post> allPost = postDAO.findAll();
+        model.addAttribute("allPost", allPost);
         return "/posts/index";
     }
 
+    @GetMapping("/posts/{id}")
+
+    public String individualPost(@PathVariable long id, Model model) {
+        String testText = "The test passed";
+        model.addAttribute("aPassedTest", testText);
+        return "posts/show";
+    }
+
     @GetMapping("/posts/create")
-    @ResponseBody
+//    @ResponseBody
     public String creatingPost(){
-        return "<h1>Testing Post Map</h1>\n" +
-                "    <form method=\"post\" action=\"/posts/create\">\n" +
-                "        <label for=\"word\">Press button to Test!:</label>\n" +
-                "        <input type=\"text\" name=\"word\" id=\"word\">\n" +
-                "        <button type=\"submit\">Testing PostMapping</button>\n" +
-                "    </form>";
+        return "/posts/index";
 }
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String newPost(){
-        return "create a new post";
+//    @ResponseBody
+    public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
+       Post post = new Post(title,body);
+       postDAO.save(post);
+        return "/posts/index";
         }
 
 }

@@ -1,3 +1,4 @@
+<!--This is the View-->
 <!DOCTYPE html>
 <!-- First Step is to Create first to start database generation-->
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
@@ -6,7 +7,7 @@
     <title>Roll Dice</title>
 </head>
 <body>
-<nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
+<!--<nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>-->
 <h1>Pick a Number</h1>
 <ul>
     <li><a href="/roll-dice/1">1</a></li>
@@ -23,6 +24,7 @@
 
 <p>Your number you chose is:  <span th:text="${numberChosen}"></span> </p>
 </div>
+<p th:if="${numberChosen == randomNumber}">Yay! That's the correct guess!</p>
 
 </body>
 </html>
