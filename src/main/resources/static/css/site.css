@@ -1,7 +1,24 @@
 .each-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
     width: 350px;
     padding: 10px;
     border: 5px solid gray;
     margin: 0;
+    border-radius: 8%;
 }
 
+.banner-div{
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    background-color: darkgoldenrod;
+}
+
+.card-design{
+    display: flex;
+    flex-direction: row;
+}

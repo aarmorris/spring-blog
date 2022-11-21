@@ -7,15 +7,18 @@
 </head>
 <body>
 <nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
-<div th:replace="partials/partials.html :: banner"></div>
+<div class="banner-div">
+    <div th:replace="partials/partials.html :: banner" ></div>
+</div>
 
 <div id="blog-post">
     <h1>View All Posts</h1>
 </div>
 <div class="container-fluid card-design">
     <div class="card each-card" th:each="posts : ${allPost}">
-        <p th:text="${posts.getTitle()}"></p>
         <p th:text="${posts.getBody()}"></p>
+        <hr>
+        <p th:text="${posts.getTitle()}"></p>
     </div>
 </div>
 

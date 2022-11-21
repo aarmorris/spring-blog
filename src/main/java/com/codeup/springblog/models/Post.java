@@ -1,5 +1,7 @@
 package com.codeup.springblog.models;
 
+import com.codeup.springblog.repositories.PostRepository;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,15 +15,15 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 // Variable instances down below.
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String title;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2000)
     private String body;
 
 
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {

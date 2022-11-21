@@ -42,7 +42,7 @@ public class PostController {
     public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
        Post post = new Post(title,body);
        postDAO.save(post);
-        return "redirect:/posts";
+        return "redirect:/posts/";
         }
 
 }
