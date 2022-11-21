@@ -35,14 +35,14 @@ public class PostController {
     @GetMapping("/posts/create")
 //    @ResponseBody
     public String creatingPost(){
-        return "/posts/index";
+        return "/posts/show";
 }
     @PostMapping("/posts/create")
 //    @ResponseBody
     public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
        Post post = new Post(title,body);
        postDAO.save(post);
-        return "/posts/index";
+        return "redirect:/posts";
         }
 
 }
