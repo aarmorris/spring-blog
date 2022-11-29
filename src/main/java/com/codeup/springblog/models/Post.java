@@ -19,8 +19,9 @@ public class Post {
     private String title;
     @Column(nullable = false, length = 2000)
     private String body;
-
-
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private Users user;
 
     public String getTitle() {
         return this.title;
