@@ -52,16 +52,16 @@ public class PostController {
         return "redirect:/posts/";
         }
 
-        @GetMapping("/users/")
-        public String userHome(){
+    @GetMapping("/posts/users")
+    public String usersHome(Model model){
+        model.addAttribute("user",new Users());
         return "/posts/Users";
-        }
+    }
 
-        @PostMapping("/posts/users")
-        public String addUser(@RequestParam(name = "email") String email, @RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
-        Users user = new Users (email, username, password);
+
+    @PostMapping("/posts/users")
+    public String insertUser(@ModelAttribute Users user) {
         userDao.save(user);
         return "redirect:/posts/users";
-        }
-
+    }
 }

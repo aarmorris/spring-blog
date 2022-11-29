@@ -4,24 +4,30 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-
+@Table(name = "users")
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 30)
-    private String username;
 
-    @Column(nullable = false, length = 200)
+    //    Unique = true does not let duplicates
+    @Column(nullable = false, length = 80, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 16)
-    private String password;
+    @Column(nullable = false, length = 50)
+    private String username;
 
+    @Column(nullable = false, length = 50)
+    private String  password;
+
+    //    This is for the relationship exercise
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
+
+//    Getters and setters
+
 
     public long getId() {
         return id;
@@ -29,14 +35,6 @@ public class Users {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
@@ -47,6 +45,14 @@ public class Users {
         this.email = email;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -55,18 +61,35 @@ public class Users {
         this.password = password;
     }
 
-    public Users(){};
+//    Constructors
 
-    public Users(long id, String username, String email, String password) {
+
+    public Users() {
+    }
+
+
+    public Users(String email, String username, String password) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Users(long id, String email, String username, String password) {
         this.id = id;
-        this.username = username;
         this.email = email;
+        this.username = username;
         this.password = password;
     }
 
-    public Users(String username, String email, String password) {
-        this.username = username;
+
+    public Users(long id, String email, String username, String password, List<Post> posts) {
+        this.id = id;
         this.email = email;
+        this.username = username;
         this.password = password;
+        this.posts = posts;
     }
+
+
+
 }
