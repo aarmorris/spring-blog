@@ -12,13 +12,13 @@ public class Users {
     private long id;
 
     @Column(nullable = false, length = 30)
-    private long username;
+    private String username;
 
     @Column(nullable = false, length = 200)
-    private long email;
+    private String email;
 
     @Column(nullable = false, length = 16)
-    private long password;
+    private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
@@ -31,40 +31,40 @@ public class Users {
         this.id = id;
     }
 
-    public long getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(long username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public long getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(long email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public long getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(long password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     public Users(){};
 
-    public Users(long id, long username, long email, long password) {
+    public Users(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public Users(long username, long email, long password) {
+    public Users(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;

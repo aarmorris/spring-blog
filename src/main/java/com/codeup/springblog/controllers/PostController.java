@@ -1,7 +1,9 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.Users;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +13,22 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    private final PostRepository postDAO;
 
-    public PostController(PostRepository postDAO) {
-        this.postDAO = postDAO;
-    }
 
     @GetMapping("/posts")
     public String postIndex(Model model) {
-        List<Post> allPost = postDAO.findAll();
+        List<Post> allPost = postDao.findAll();
         model.addAttribute("allPost", allPost);
         return "/posts/index";
+    }
+
+    private final PostRepository postDao;
+
+    private  final UserRepository userDao;
+
+    public PostController(PostRepository postDao, UserRepository userDao) {
+        this.postDao = postDao;
+        this.userDao = userDao;
     }
 
     @GetMapping("/posts/{id}")
@@ -41,8 +48,20 @@ public class PostController {
 //    @ResponseBody
     public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
        Post post = new Post(title,body);
-       postDAO.save(post);
+       postDao.save(post);
         return "redirect:/posts/";
+        }
+
+        @GetMapping("/users/")
+        public String userHome(){
+        return "/posts/Users";
+        }
+
+        @PostMapping("/posts/users")
+        public String addUser(@RequestParam(name = "email") String email, @RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+        Users user = new Users (email, username, password);
+        userDao.save(user);
+        return "redirect:/posts/users";
         }
 
 }
