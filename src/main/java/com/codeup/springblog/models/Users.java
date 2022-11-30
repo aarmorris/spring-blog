@@ -24,7 +24,7 @@ public class Users {
 
     //    This is for the relationship exercise
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Post> posts;
+    public List<Post> posts;
 
 //    Getters and setters
 
@@ -61,7 +61,15 @@ public class Users {
         this.password = password;
     }
 
-//    Constructors
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    //    Constructors
 
 
     public Users() {

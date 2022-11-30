@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 public class SpringBlogUserDetails extends Users implements UserDetails {
 
@@ -32,5 +33,11 @@ public class SpringBlogUserDetails extends Users implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public SpringBlogUserDetails(){};
+
+    public SpringBlogUserDetails(long id, String email, String username, String password, List<Post> posts) {
+        super(id, email, username, password, posts);
     }
 }

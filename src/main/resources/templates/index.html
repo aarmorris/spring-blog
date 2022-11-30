@@ -3,6 +3,9 @@
 <head th:replace="partials/partials.html :: head ('Spring Blog')"></head>
 <nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
 <body>
+<form th:action="@{/logout}" th:method="post">
+    <button>Logout</button>
+</form>
 <h1>Hello</h1>
 </body>
 </html>
