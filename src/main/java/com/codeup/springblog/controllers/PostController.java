@@ -39,19 +39,39 @@ public class PostController {
         return "posts/show";
     }
 
-    @GetMapping("/posts/create")
-//    @ResponseBody
-    public String creatingPost(){
-        return "/posts/show";
-}
-    @PostMapping("/posts/create")
-//    @ResponseBody
-    public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-       Post post = new Post(title,body);
-       postDao.save(post);
-        return "redirect:/posts/";
-        }
+//    @GetMapping("/posts/create")
+////    @ResponseBody
+//    public String creatingPost(){
+//        return "/posts/show";
+//}
+//    @PostMapping("/posts/create")
+////    @ResponseBody
+//    public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
+//       Post post = new Post(title,body);
+//       postDao.save(post);
+//        return "redirect:/posts/";
+//        }
 
+    //    Takes me to the create.html which is main page that says Create your post
+    @GetMapping("posts/create")
+    public String homepageBlog(Model model){
+        List<Users> users = userDao.findAll();
+        model.addAttribute("users", users);
+        model.addAttribute("post", new Post());
+        return "posts/show";
+    }
+
+
+    // This lets you add a post i refactor it to form model binding also the html
+    @PostMapping("posts/show")
+    public String addPostWithUser(@ModelAttribute Post post){
+        postDao.save(post);
+        return "redirect:/posts";
+    }
+
+
+
+//        This creates the user
     @GetMapping("/posts/users")
     public String usersHome(Model model){
         model.addAttribute("user",new Users());
@@ -59,6 +79,7 @@ public class PostController {
     }
 
 
+//    This add the user
     @PostMapping("/posts/users")
     public String insertUser(@ModelAttribute Users user) {
         userDao.save(user);

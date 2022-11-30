@@ -1,30 +1,28 @@
 package com.codeup.springblog.models;
 
-import com.codeup.springblog.repositories.PostRepository;
-
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 
 @Entity
-@Table(name="Posts")
+@Table(name="post")
+
 public class Post {
+//  Instances
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-// Variable instances down below.
-    @Column(nullable = false, length = 100)
+
+    @Column(nullable = false, length = 50)
     private String title;
-    @Column(nullable = false, length = 2000)
+
+    @Column(nullable = false, length = 100)
     private String body;
-    @ManyToOne
-    @JoinColumn (name = "user_id")
-    private Users user;
+
+// Getters and Setters
+
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public void setTitle(String title) {
@@ -39,11 +37,51 @@ public class Post {
         this.body = body;
     }
 
-    public Post(){};
+    public long getId() {
+        return id;
+    }
 
-    public Post(String title, String body){
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+
+
+
+    //    Many to one
+    @ManyToOne
+//    @JoinColumn(name = "user_id") It worked without it, but in the walk through they used it
+    private Users user;
+
+
+    //    Constructor
+
+    public Post() {
+    }
+
+
+    public Post(String title, String body) {
         this.title = title;
         this.body = body;
+    }
 
+    public Post(long id, String title, String body) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
+
+    public Post(String title, String body, Users user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
     }
 }
