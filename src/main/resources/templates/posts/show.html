@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en"><head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:replace="partials/navbar.html :: head ('create')">
     <meta charset="UTF-8">
-    <title>Show One Post</title>
+    <title>Create</title>
 </head>
 <body>
 <nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
 
 <fieldset class="postMiddleForm">
-    <legend>View your post</legend>
-    <form action="/posts/show" method="post" th:object="${post}">
+    <legend>Create a Post</legend>
+    <form th:action="@{/posts/show}" th:method="post" th:object="${post}">
         <label for="body">Write your Post:</label>
         <input type="text" id="body" name="body" th:field="*{body}">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" th:field="*{title}">
-
-        <select name="user" id="user" th:field="*{user}">
-            <option
-                    th:each="user : ${users}"
-                    th:value="${user.getId()}"
-                    th:text="${user.getUsername()}">
-            </option>
-        </select>
 
         <input type="submit" value="submit">
     </form>

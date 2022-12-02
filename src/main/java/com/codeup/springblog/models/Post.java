@@ -58,7 +58,7 @@ public class Post {
 
     //    Many to one
     @ManyToOne
-//    @JoinColumn(name = "user_id") It worked without it, but in the walk through they used it
+    @JoinColumn(name = "user_id")
     private Users user;
 
 
@@ -84,4 +84,9 @@ public class Post {
         this.body = body;
         this.user = user;
     }
+
+
+
+
+
 }

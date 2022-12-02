@@ -16,9 +16,9 @@
 </div>
 <div class="container-fluid card-design">
     <div class="card each-card" th:each="posts : ${allPost}">
-        <p th:text="${posts.getBody()}"></p>
+        <p th:text="${posts.title}"></p>
         <hr>
-        <p th:text="${posts.getTitle()}"></p>
+        <p th:text="${posts.body}"></p>
     </div>
 </div>
 

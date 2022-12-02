@@ -4,6 +4,7 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.Users;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import com.codeup.springblog.services.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,18 +40,6 @@ public class PostController {
         return "posts/show";
     }
 
-//    @GetMapping("/posts/create")
-////    @ResponseBody
-//    public String creatingPost(){
-//        return "/posts/show";
-//}
-//    @PostMapping("/posts/create")
-////    @ResponseBody
-//    public String newPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-//       Post post = new Post(title,body);
-//       postDao.save(post);
-//        return "redirect:/posts/";
-//        }
 
     //    Takes me to the create.html which is main page that says Create your post
     @GetMapping("posts/create")
@@ -63,26 +52,12 @@ public class PostController {
 
 
     // This lets you add a post i refactor it to form model binding also the html
-    @PostMapping("posts/show")
+    @PostMapping("/posts/show")
     public String addPostWithUser(@ModelAttribute Post post){
+        Users user = Utils.currentUser();
+        post.setUser(user);
         postDao.save(post);
-        return "redirect:/posts";
+        return "redirect:/posts/index";
     }
 
-
-
-//        This creates the user
-    @GetMapping("/posts/users")
-    public String usersHome(Model model){
-        model.addAttribute("user",new Users());
-        return "/posts/Users";
-    }
-
-
-//    This add the user
-    @PostMapping("/posts/users")
-    public String insertUser(@ModelAttribute Users user) {
-        userDao.save(user);
-        return "redirect:/posts/users";
-    }
 }
