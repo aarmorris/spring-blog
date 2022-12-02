@@ -79,18 +79,18 @@ public class Post {
         this.body = body;
     }
 
-    public Post(String title, String body, Users user) {
-        this.title = title;
-        this.body = body;
-        this.user = user;
-    }
+//    public Post(String title, String body, Users user) {
+//        this.title = title;
+//        this.body = body;
+//        this.user = user;
+//    }
 
-    public Post(long id, String title, String body, Users user) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-        this.user = user;
-    }
+//    public Post(long id, String title, String body, Users user) {
+//        this.id = id;
+//        this.title = title;
+//        this.body = body;
+//        this.user = user;
+//    }
 
 
 
