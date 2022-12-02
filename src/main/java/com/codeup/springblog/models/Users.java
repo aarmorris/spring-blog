@@ -13,10 +13,10 @@ public class Users {
 
 
     //    Unique = true does not let duplicates
-    @Column(nullable = false, length = 80, unique = true)
+    @Column(nullable = false, length = 80)
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String username;
 
     @Column(nullable = false, length = 255)
@@ -24,7 +24,7 @@ public class Users {
 
     //    This is for the relationship exercise
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    public List<Post> posts;
+    private List<Post> posts;
 
 //    Getters and setters
 
@@ -82,20 +82,20 @@ public class Users {
         this.password = password;
     }
 
-    public Users(long id, String email, String username, String password) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
+//    public Users(long id, String email, String username, String password) {
+//        this.id = id;
+//        this.email = email;
+//        this.username = username;
+//        this.password = password;
+//    }
 
 
-    public Users(long id, String email, String username, String password, List<Post> posts) {
+    public Users(long id, String username, String email, String password) {
         this.id = id;
-        this.email = email;
         this.username = username;
+        this.email = email;
         this.password = password;
-        this.posts = posts;
+//        this.posts = posts;
     }
 
 

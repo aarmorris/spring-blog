@@ -42,7 +42,7 @@ public class PostController {
 
 
     //    Takes me to the create.html which is main page that says Create your post
-    @GetMapping("posts/create")
+    @GetMapping("/posts/create")
     public String homepageBlog(Model model){
         List<Users> users = userDao.findAll();
         model.addAttribute("users", users);
@@ -57,7 +57,7 @@ public class PostController {
         Users user = Utils.currentUser();
         post.setUser(user);
         postDao.save(post);
-        return "redirect:/posts/index";
+        return "/posts/index";
     }
 
 }

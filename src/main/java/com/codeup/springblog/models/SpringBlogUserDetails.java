@@ -37,7 +37,7 @@ public class SpringBlogUserDetails extends Users implements UserDetails {
 
     public SpringBlogUserDetails(){};
 
-    public SpringBlogUserDetails(long id, String email, String username, String password, List<Post> posts) {
-        super(id, email, username, password, posts);
+    public SpringBlogUserDetails(long id, String email, String username, String password) {
+        super(id, username, email, password);
     }
 }

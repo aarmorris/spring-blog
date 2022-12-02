@@ -1,5 +1,4 @@
 package com.codeup.springblog.services;
-
 import com.codeup.springblog.models.SpringBlogUserDetails;
 import com.codeup.springblog.models.Users;
 import com.codeup.springblog.repositories.UserRepository;
@@ -23,7 +22,7 @@ public class SpringBlogUserDetailsService implements UserDetailsService {
         if (user == null){
             throw new UsernameNotFoundException("User details not found for user: " + username);
         } else {
-            return new SpringBlogUserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), user.posts);
+            return new SpringBlogUserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
         }
     }
 

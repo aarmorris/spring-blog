@@ -58,7 +58,7 @@ public class Post {
 
     //    Many to one
     @ManyToOne
-    @JoinColumn(name = "user_id")
+//    @JoinColumn(name = "user_id")
     private Users user;
 
 
@@ -85,6 +85,12 @@ public class Post {
         this.user = user;
     }
 
+    public Post(long id, String title, String body, Users user) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
 
 
 
