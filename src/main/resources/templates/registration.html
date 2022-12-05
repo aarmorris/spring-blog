@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/navbar.html :: head ('registration')">
-  <meta charset="UTF-8">
-  <title>Register for the Spring Blog</title>
+    <meta charset="UTF-8">
+    <title>Registration for Spring Blog</title>
 </head>
 <body>
-<nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
-<h1>Create an account</h1>
-<form th:action="@{/register}" method="post" th:object="${user}">
-  <label for="username">Username</label>
-  <input id="username" th:field="*{username}">
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" th:field="*{email}">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" th:field="*{password}">
-  <br><br>
-  <input type="submit" value="Sign me up!">
-</form>
+<div class="page-wrapper">
+    <nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
+    <div class="container2 container-grow">
+        <div class="row2">
+            <div class="column2 center-content2">
+                <form class="create-account-form" th:action="@{/register}" method="post" th:object="${user}">
+                    <h1>Join our Blog Community</h1>
+<!--                    <label for="username">Username</label>-->
+                    <input placeholder="Username" class="input2" id="username" th:field="*{username}">
+<!--                    <label for="email">Email</label>-->
+                    <input placeholder="Email" class="input2" id="email" th:field="*{email}">
+<!--                    <label for="password">Password</label>-->
+                    <input placeholder="Password" class="input2" id="password" type="password" th:field="*{password}">
+                    <input class="submit2" type="submit" value="Sign me up!">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

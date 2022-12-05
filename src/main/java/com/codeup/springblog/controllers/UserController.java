@@ -27,9 +27,15 @@ public class UserController {
     }
     @PostMapping("/register")
     public String registerUser(@ModelAttribute Users user){
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        usersDao.save(user);
-        return "redirect:/posts/create";
+        if (user.getPassword() != "" && user.getEmail() != "" && user.getPassword() != ""){
+            usersDao.save(user);
+            return "redirect:/posts/create";
+        } else {
+            return "redirect:/register";
+        }
+
     }
 
 }

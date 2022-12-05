@@ -31,4 +31,105 @@ body{
     flex-direction: row;
 }
 
+.page-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.container2 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row2{
+    display:flex;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.column2{
+    display: flex;
+    flex-direction: column;
+}
+
+.column2.center-content2{
+    align-items: center;
+    flex-grow: 1;
+}
+
+.container2.container-grow{
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.create-account-form{
+    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 13px 18px #0000005e;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+input.input2 {
+    width: 100%;
+    height: 52px;
+    border-radius: 10px;
+    outline: none;
+    border-color: #000;
+    border-width: 1px;
+    padding: 15px;
+}
+
+.submit2{
+    padding: 15px 20px;
+    background:radial-gradient(ellipse farthest-corner at left top, #d9480f 30%, #625f62 100%);
+    color: white;
+    transition: all ease .2s;
+    border-radius: 10px;
+}
+
+.submit3{
+    padding: 15px 20px;
+    background:radial-gradient(ellipse farthest-corner at left top, #7c7de8 30%, #625f62 100%);
+    color: white;
+    transition: all ease .2s;
+    border-radius: 10px;
+}
+
+.submit3:hover{
+    background-color: #1a1dc2;
+    box-shadow: 0 7px 30px #000000;
+    transition: box-shadow 500ms ease;
+}
+
+
+.submit2:hover{
+    background-color: #e70a0a;
+    box-shadow: 0 7px 30px #000000;
+    transition: box-shadow 500ms ease;
+}
+
+
+
+.login-form{
+    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 13px 18px #0000005e;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+
+
+
 

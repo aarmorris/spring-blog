@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/navbar.html :: head ('signin')">
-  <meta charset="UTF-8">
-  <title>Log In</title>
+    <meta charset="UTF-8">
+    <title>Log In</title>
 </head>
 <body>
-<nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
-<h1>Log In</h1>
-<div th:if="${param.error}">
-  Invalid Username and Password.
+<div class="page-wrapper">
+    <nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
+    <div class="container2 container-grow">
+        <div class="row2">
+            <div th:if="${param.error}">
+                Invalid Username and Password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <div class="column2 center-content2">
+                    <form class="login-form" th:action="@{/login}" method="post">
+                        <h1>Please Login</h1>
+                        <label for="username"></label>
+                        <input class="input2" placeholder="Username" id="username" name="username" type="text">
+                        <label for="password"></label>
+                        <input class="input2" placeholder="Password" id="password" name="password" type="password">
+                        <input class="submit3" type="submit" value="Log In">
+                    </form>
+            </div>
+        </div>
+    </div>
 </div>
-<div th:if="${param.logout}">
-  You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-  <label for="username">Username</label>
-  <input id="username" name="username" type="text">
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password">
-  <input type="submit" value="Log In">
-</form>
 </body>
 </html>

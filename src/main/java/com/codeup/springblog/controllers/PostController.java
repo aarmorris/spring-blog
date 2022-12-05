@@ -81,8 +81,8 @@ public class PostController {
         if (currentUserId == 0){
             return "redirect:/login";
         }
-        Post post1 = postDao.findById(id);
-        if (post1.getUser().getId() != currentUserId){
+//        Post post1 = postDao.findById(id);
+        if (post.getUser().getId() != currentUserId){
             return "redirect:/posts/";
         }
         model.addAttribute("post", post);
