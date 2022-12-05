@@ -21,6 +21,7 @@
         <div>
             <p th:if="${posts.user.id} == ${#authentication.principal.id}">
                 <button th:data-id="${posts.id}" class="editButton">Edit</button>
+                <button th:data-id="${posts.id}" class="deleteButton">Delete</button>
             </p>
         </div>
     </div>

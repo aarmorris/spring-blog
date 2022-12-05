@@ -101,4 +101,13 @@ public class PostController {
         return "redirect:/posts/";
     }
 
+    @GetMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id, Post post){
+        Users user = Utils.currentUser();
+        post.setUser(user);
+        Post posts = postDao.findById(id);
+        postDao.delete(posts);
+        return "redirect:/blogs";
+    }
+
 }
