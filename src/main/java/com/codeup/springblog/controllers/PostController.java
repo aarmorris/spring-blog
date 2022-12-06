@@ -107,7 +107,7 @@ public class PostController {
         post.setUser(user);
         Post posts = postDao.findById(id);
         postDao.delete(posts);
-        return "redirect:/blogs";
+        return "redirect:/posts/";
     }
 
 }
