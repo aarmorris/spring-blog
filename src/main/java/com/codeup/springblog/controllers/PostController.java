@@ -42,12 +42,12 @@ public class PostController {
         this.emailService = emailService;
     }
 
-    @GetMapping("/posts/{id}")
-    public String individualPost(@PathVariable long id, Model model) {
-        String testText = "The test passed";
-        model.addAttribute("aPassedTest", testText);
-        return "create";
-    }
+//    @GetMapping("/posts/{id}")
+//    public String individualPost(@PathVariable long id, Model model) {
+//        String testText = "The test passed";
+//        model.addAttribute("aPassedTest", testText);
+//        return "create";
+//    }
 
 
     //    Takes me to the create.html which is main page that says Create your post
@@ -108,6 +108,12 @@ public class PostController {
         Post posts = postDao.findById(id);
         postDao.delete(posts);
         return "redirect:/posts/";
+    }
+    @GetMapping("/posts/{id}")
+    public String viewPosts(@PathVariable long id, Model model){
+        Post post = postDao.findById(id);
+        model.addAttribute("individual", post);
+        return "/posts/individual";
     }
 
 }
