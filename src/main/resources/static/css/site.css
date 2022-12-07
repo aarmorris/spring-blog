@@ -133,6 +133,9 @@ input.input2 {
     padding: 30px;
 }
 
+textarea.form-control {
+    min-height: calc(30.5em + 0.75rem + 2px);
+}
 
 
 
